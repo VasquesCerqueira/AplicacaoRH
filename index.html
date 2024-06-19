@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Recurso</title>
+    <style>
+        body {
+            width: 1024px; /* Define uma largura fixa para o corpo */
+            margin: 0 auto; /* Centraliza o corpo na tela */
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 200px; /* Largura fixa para os rótulos */
+            margin-right: 10px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 300px; /* Largura fixa para os campos de entrada */
+        }
+
+        .form-group.radio-group {
+            flex-direction: row; /* Mantém os radio buttons na mesma linha */
+        }
+
+        .form-group.radio-group label {
+            width: auto; /* Ajusta a largura do label para auto */
+            margin-right: 10px;
+        }
+
+        .form-group.radio-group .radio-options {
+            display: flex;
+            justify-content: space-between;
+            width: 300px; /* Largura fixa para alinhar com os campos de entrada */
+        }
+
+        .form-group.radio-group input[type="radio"] {
+            width: auto; /* Ajusta a largura dos radio buttons */
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Recurso</h1>
+    <form action="/submit" method="post">
+        <div class="form-group">
+            <label for="Recurso">Recurso:</label>
+            <input type="text" id="Recurso" name="Recurso">
+        </div>
+
+        <div class="form-group">
+            <label for="Perfil">Perfil:</label>
+            <input type="text" id="Perfil" name="Perfil">
+        </div>
+
+        <div class="form-group radio-group">
+            <label>Disponível para DG?</label>
+            <div class="radio-options">
+                <input type="radio" id="Disponibilidade_DG_Sim" name="Disponibilidade_DG" value="True">
+                <label for="Disponibilidade_DG_Sim">Sim</label>
+                <input type="radio" id="Disponibilidade_DG_Nao" name="Disponibilidade_DG" value="False">
+                <label for="Disponibilidade_DG_Nao">Não</label>
+            </div>
+        </div>
+
+        <div class="form-group radio-group">
+            <label>Disponível para IA?</label>
+            <div class="radio-options">
+                <input type="radio" id="Disponibilidade_IA_Sim" name="Disponibilidade_IA" value="True">
+                <label for="Disponibilidade_IA_Sim">Sim</label>
+                <input type="radio" id="Disponibilidade_IA_Nao" name="Disponibilidade_IA" value="False">
+                <label for="Disponibilidade_IA_Nao">Não</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Ingresso_ao_Time">Data de Ingresso ao Time:</label>
+            <input type="text" id="Ingresso_ao_Time" name="Ingresso_ao_Time">
+        </div>
+
+        <div class="form-group">
+            <label for="Ate">Até:</label>
+            <input type="text" id="Ate" name="Ate">
+        </div>
+
+        <div class="form-group">
+            <label for="Duracao">Duração:</label>
+            <input type="text" id="Duracao" name="Duracao">
+        </div>
+
+        <div class="form-group">
+            <label for="Ano_de_ate">Ano De|Até:</label>
+            <input type="text" id="Ano_de_ate" name="Ano_de_ate">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="Local_de_atuacao">Local de Atuação:</label>
+            <input type="text" id="Local_de_atuacao" name="Local_de_atuacao">
+        </div>
+
+        <div class="form-group">
+            <label for="Celular">Celular:</label>
+            <input type="text" id="Celular" name="Celular">
+        </div>
+
+        <div class="form-group">
+            <label for="Qtd_Atuacoes">Quantidade de atuações em projeto:</label>
+            <input type="text" id="Qtd_Atuacoes" name="Qtd_Atuacoes">
+        </div>
+
+        <div class="form-group">
+            <label for="Alocacao">Alocação:</label>
+            <input type="text" id="Alocacao" name="Alocacao">
+        </div>
+
+        <div class="form-group">
+            <label for="reuniao_one_on_one">Data do último 1:1:</label>
+            <input type="text" id="reuniao_one_on_one" name="reuniao_one_on_one">
+        </div>
+
+        <div class="form-group">
+            <label for="gestor_one_on_one">Gestor do último 1:1:</label>
+            <input type="text" id="gestor_one_on_one" name="gestor_one_on_one">
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Comunicacao">Skill Comunicação:</label>
+            <select id="Skill_Comunicacao" name="Skill_Comunicacao">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_DG">Skill DG:</label>
+            <select id="Skill_DG" name="Skill_DG">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_IDMC_DG">Skill IDMC DG:</label>
+            <select id="Skill_IDMC_DG" name="Skill_IDMC_DG">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_IDMC_DQ">Skill IDMC DQ:</label>
+            <select id="Skill_IDMC_DQ" name="Skill_IDMC_DQ">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Axon">Skill Axon:</label>
+            <select id="Skill_Axon" name="Skill_Axon">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_EDC">Skill EDC:</label>
+            <select id="Skill_EDC" name="Skill_EDC">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_TDM">Skill TDM:</label>
+            <select id="Skill_TDM" name="Skill_TDM">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_DPM">Skill DPM:</label>
+            <select id="Skill_DPM" name="Skill_DPM">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_DEI">Skill DEI:</label>
+            <select id="Skill_DEI" name="Skill_DEI">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_DEQ">Skill DEQ:</label>
+            <select id="Skill_DEQ" name="Skill_DEQ">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_PowerCenter">Skill PowerCenter:</label>
+            <select id="Skill_PowerCenter" name="Skill_PowerCenter">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Purview">Skill Purview:</label>
+            <select id="Skill_Purview" name="Skill_Purview">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Dataplex">Skill Dataplex:</label>
+            <select id="Skill_Dataplex" name="Skill_Dataplex">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Databrix_Notebooks">Skill Databricks Notebooks:</label>
+            <select id="Skill_Databrix_Notebooks" name="Skill_Databrix_Notebooks">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Denodo">Skill Denodo:</label>
+            <select id="Skill_Denodo" name="Skill_Denodo">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_OpenMetadata">Skill OpenMetadata:</label>
+            <select id="Skill_OpenMetadata" name="Skill_OpenMetadata">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Python">Skill Python:</label>
+            <select id="Skill_Python" name="Skill_Python">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Skill_Azure">Skill Azure:</label>
+            <select id="Skill_Azure" name="Skill_Azure">
+                <option value="Alta">Alta</option>
+                <option value="Média">Média</option>
+                <option value="Baixa">Baixa</option>
+            </select>
+        </div>
+
+        <button type="submit">Cadastrar Recurso</button>
+    </form>
+</body>
+</html>

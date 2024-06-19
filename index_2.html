@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skills</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #4CAF50;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .dropdowns {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .dropdowns label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .dropdowns select {
+            padding: 5px;
+            font-size: 16px;
+        }
+        #chart {
+            margin-top: 20px;
+            width: 100%;  /* Largura do gráfico ajustada */
+            height: 600px;  /* Altura do gráfico ajustada */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Skills</h1>
+        <div class="dropdowns">
+            <div>
+                <label for="recurso1">Selecione o Primeiro Recurso:</label>
+                <select id="recurso1">
+                    {% for recurso in recursos %}
+                    <option value="{{ recurso }}">{{ recurso }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label for="recurso2">Selecione o Segundo Recurso:</label>
+                <select id="recurso2">
+                    {% for recurso in recursos %}
+                    <option value="{{ recurso }}">{{ recurso }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div id="chart"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            function fetchChart(recurso1, recurso2) {
+                $.ajax({
+                    url: '/update_chart',
+                    method: 'POST',
+                    contentType: 'application/x-www-form-urlencoded',
+                    data: { recurso1: recurso1, recurso2: recurso2 },
+                    success: function(data) {
+                        var graphDiv = document.getElementById('chart');
+                        Plotly.react(graphDiv, JSON.parse(data).data, JSON.parse(data).layout);
+                    }
+                });
+            }
+
+            $('#recurso1, #recurso2').change(function() {
+                var recurso1 = $('#recurso1').val();
+                var recurso2 = $('#recurso2').val();
+                fetchChart(recurso1, recurso2);
+            });
+
+            // Fetch the initial chart with the first two resources
+            fetchChart($('#recurso1').val(), $('#recurso2').val());
+        });
+    </script>
+</body>
+</html>
